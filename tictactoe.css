@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+}
+
+#game div {
+  background-color: linen;
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+#game div:hover {
+  background-color: yellow;
+}
+
+div
+
+/*#span-0, #span-1, #span-2 {
+  display: block;
+} 
+
+#span-3, #span-4, #span-5 {
+  display: block;
+} 
+
+#span-6, #span-7, #span-8 {
+  display: block;
+} */
+
+
