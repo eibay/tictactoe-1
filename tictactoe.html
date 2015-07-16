@@ -5,14 +5,26 @@
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="tictactoe.css">
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<header>
+</header>
   <h1>TIC TAC TOE</h1>
-  <div id="winner"></div>
-  <div id="game"></div>
-
-
+    <h3>SCOREBOARD</h3>
+    <div id="tally">
+      <label for="playerX">X</label>
+      <div id="xScore"></div>
+      <div id="oScore"></div>
+      <label for="playerO">O</label>
+    </div>
+    <button id="playAgain">PLAY AGAIN</button>
+    
+  <div id="playArea">
+    <div id="game"></div>
+  </div>
   <script src="underscore.js"></script>
   <script src="tictactoe.js"></script>
 </body>
+<footer>&#169; GA Project 2015</footer>
 </html>

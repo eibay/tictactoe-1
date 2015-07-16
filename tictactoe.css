@@ -1,16 +1,45 @@
 body {
   text-align: center;
-  background-color: #006BBB;
+  /*background-color: #FFCC66;*/
   margin: 0 auto;
-  max-width: 800px;
+  font-family: 'Nunito', sans-serif;
+  background: url(http://vectorbeast.com/wp-content/uploads/2013/07/abstract-background.jpg);
+  background-position: cover;
+}
+
+header {
+background-color: black;
+height: 100px;
+max-width: 100%;
+}
+
+h1 {
+  font-size: 5em;
+  color: white;
+  margin-top: -100px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  max-width: 10em;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  padding-top: 5px;
+
 }
 
 #game {
   width: 400px;
   height: 400px;
   margin-left: 25%;
-  /*margin-right: 12.5%;*/
-  /*margin: 0 auto;*/
+  border: solid 20px black;
+  /*border-radius: 20px;*/
+  background-color: black;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
 #game div {
@@ -22,10 +51,11 @@ body {
   font-size: 14em;
   position: relative;
   line-height: 90px; 
+  margin-top: 0%;
 }
 
 #game div:hover {
-  background-color: yellow;
+  background-color: #FFFF66;
 }
 
 #span-0, #span-1, #span-2 {
@@ -40,10 +70,74 @@ body {
   display: inline-block;
 } 
 
-@media all and (min-width: 300px) {
-  #game div {
+#tally {
+  border: solid 2px black;
+  max-width: 40%;
+  margin: 0 auto;
+  padding-top: 5px;
+  border-radius: 10px;
+  margin-top: -0.5em;
+  background-color: #20B2AA;
+}
 
+#xScore, #oScore {
+  height: 45px;
+  width: 45px;
+  background-color: white;
+  border: solid 2px black;
+}
+
+#xScore, #oScore, label {
+  display: inline-block;
+}
+
+label {
+  font-size: 4em;
+}
+
+button {
+  height: 2em;
+  border: solid 2px black;
+  /*border-radius: 5px;*/
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Nunito', sans-serif;
+  position: relative;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  background-color: #FFCC66;
+  color: black;
+}
+
+button:hover {
+  background-color: black;
+  color: #FFCC66;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  font-size: 0.2em;
+}
+
+@media all and (max-width: 600px) {
+  h1 {
+    font-size: 3em;
+    margin-bottom: 7px;
   }
+
+h3 {
+  background-color: white;
+  color: black;
+}
+
 }
 
 
