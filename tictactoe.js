@@ -10,39 +10,56 @@ var game = {
 
 
   setPlay: function() {
-  
+    
   },
 
 
   checkWin: function() {
+    //WINNER DETERMINED WHEN:
+    if ('x' === game.puzzle[0] && 'x' === game.puzzle[1] && 'x' === game.puzzle[2]) {
+      return true;
+    } else if ('x' === game.puzzle[3] && 'x' === game.puzzle[4] && 'x' === game.puzzle[5]) {
+      return true;
+    } else if ('x' === game.puzzle[6] && 'x' === game.puzzle[7] && 'x' === game.puzzle[8]) {
+      return true;
+    } else if ('x' === game.puzzle[0] && 'x' === game.puzzle[3] && 'x' === game.puzzle[6]) {
+      return true;
+    } else if ('x' === game.puzzle[1] && 'x' === game.puzzle[4] && 'x' === game.puzzle[7]) {
+      return true;
+    } else if ('x' === game.puzzle[2] && 'x' === game.puzzle[5] && 'x' === game.puzzle[8]) {
+      return true;
+    } else if ('x' === game.puzzle[0] && 'x' === game.puzzle[4] && 'x' === game.puzzle[8]) {
+      return true;
+    } else if ('x' === game.puzzle[2] && 'x' === game.puzzle[4] && 'x' === game.puzzle[6]) {
+      return true;
+    } else if ('0' === game.puzzle[0] && 'o' === game.puzzle[1] && 'o' === game.puzzle[2]) {
+      return true;
+    } else if ('o' === game.puzzle[3] && 'o' === game.puzzle[4] && 'o' === game.puzzle[5]) {
+      return true;
+    } else if ('o' === game.puzzle[6] && 'o' === game.puzzle[7] && 'o' === game.puzzle[8]) {
+      return true;
+    } else if ('o' === game.puzzle[0] && 'o' === game.puzzle[3] && 'o' === game.puzzle[6]) {
+      return true;
+    } else if ('o' === game.puzzle[1] && 'o' === game.puzzle[4] && 'o' === game.puzzle[7]) {
+      return true;
+    } else if ('o' === game.puzzle[2] && 'o' === game.puzzle[5] && 'o' === game.puzzle[8]) {
+      return true;
+    } else if ('o' === game.puzzle[0] && 'o' === game.puzzle[4] && 'o' === game.puzzle[8]) {
+      return true;
+    } else if ('o' === game.puzzle[2] && 'o' === game.puzzle[4] && 'o' === game.puzzle[6]) {
+      return true;
+    }
 
-    var sortArrayX = indexArrayX.sort()
-    var sortArrayO = indexArrayO.sort()
-    
-    var winningCombos = {
-                            //across
-                            [0, 1, 2],
-                            [3, 4, 5],
-                            [6, 7, 8],
-                            //down
-                            [0, 3, 6],
-                            [1, 4, 7],
-                            [2, 5, 8],
-                            //diagonal
-                            [0, 4, 8],
-                            [2, 4, 6]
-    };
+        //MUST HAVE A GROUP OF THREE BEFORE DECLARING WINNER
+    if (game.indexArrayX.length < 3 || game.indexArrayO.length < 3) {
+      return false;
+    }
 
-
-    // if === true {
-    //   console.log('x is the winner')
-    // }
 
   },
-//find underscore code to determine where x's or o's are.
-//if each index group equals either x or o, winner is determined; 
 
   init: function() {
+    game.puzzle()
   }
 }
 
@@ -69,9 +86,6 @@ window.onload = function() {
     var markerX = 'x';
     var markerO = 'o';
     game.counter++
- 
-    // console.log(game.counter)
-    //each time div is clicked, counter++
 
 //MARKING X IN ARRAY, MARKING X ON THE BOARD, AND ALSO INPUTTING INDEX INTO NEW ARRAY FOR COMPARISON WITH WINNER
       if (game.counter % 2 === 1) {
@@ -85,7 +99,10 @@ window.onload = function() {
         game.indexArrayO.push(index);
         console.log('o appears at: ' + index);
       }
+      console.log('win? ' + game.checkWin());
+      if (game.checkWin() === true) {
+        alert(game.counter[index] + 'HAVE WON!')
+      }
   });
-
 
 }

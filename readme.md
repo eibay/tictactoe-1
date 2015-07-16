@@ -1,30 +1,16 @@
-##TIC TAC TOE##
-- javascript
-- play area to be grid 3 x 3
-- x and o to be an array ['x', 'o']
-- play again option
-- tallyboard
-- two players, winner & loser
+TIC TAC TOE
 
-- who goes first?
-
-
-###Things to do:###
-Wednesday Day:
+Things to do:
 - Make sure Javascript is functioning
   - Able to determine winner
   - Add a scoring system
+  - Able to only click once
   - Reset the board/game
 - Figure out intergration between Javascript & DOM
-
-Wednesday Night:
-- Design Tic Tac Toe header
-- Plan style of layout
-
-Thursday:
 - Local Storage
 - Find and fix any bugs
 
 Thursday night: 
 - Complete CSS Design
+- Make sure divs don't move
 - Complete final touches

@@ -1,4 +1,75 @@
-console.log('This is Tic Tac Toe')
+    if (game.checkWin === true) {
+    alert('WINNER. PLAY again!');
+    console.log('win? ' + game.checkWin());
+    } else if (game.counter === 9 && game.checkWin === false) {
+    alert(draw);
+    }
+
+//==============================================================
+
+    if (game.puzzle[0] === game.puzzle[1] && game.puzzle[0] === game.puzzle[2]) {
+      return true;
+    } else if (game.puzzle[3] === game.puzzle[4] && game.puzzle[3] === game.puzzle[5]) {
+      return true;
+    }
+//==============================================================
+
+         var winningCombo = [0,1,2];
+
+    if (game.indexArrayX.length < 3) {
+      return false;
+    }
+
+    for(var index = 0; index < game.indexArrayX.length; index++) { 
+      if (game.indexArrayX[index] !== winningCombo[index]) {
+        return false;
+      }
+    };
+
+    return true;
+
+
+//=================================================================
+
+      if (game.counter % 2 === 1) {
+        $(this).html(markerX);
+        var markerXIndex = game.puzzle[index];
+        indexArrayX.push(markerXIndex);
+        console.log('x appears at: ' + index);
+        debugger;
+      } else {
+        $(this).html(markerO);
+        var markerOIndex = game.puzzle[index];
+        indexArrayO.push(markerOIndex);
+        console.log('o appears at: ' + index);
+      }
+
+
+//DT's ORIGINAL CODE
+  _.each(game.puzzle, function(marker, index) {
+    // add div box
+    var newDivBox = $('<div>').attr('id','span-' + index).html(marker);
+    $('#game').append(newDivBox);
+
+  });
+
+  $('#game').on('click', 'div', function(event) {
+
+    var index = parseInt(this.id.split('-')[1]); // getting the index number of the div being clicked to apply it back to the array
+    console.log('index', index);
+    game.puzzle[index] = 'x'; // updating puzzle
+
+    $(this).html('x');
+
+
+    //alternating turns - not working
+    for (var i=0; i < game.puzzle.length; i++) {
+      if (i % 2 === 0) {
+        $(this).html('x');
+      } else {
+        $(this).html('o');
+      }
+    }
 
 //GAME
 var game = {
@@ -184,6 +255,22 @@ window.onload = function() {
       } else if (play.splice('_', 1, 'o')) {
         console.log('o')
       }
+
+//========================================
+
+    // var marker = 'x'
+    // if (index % 2 === 0) {
+    //   $(this).html('o');
+    // } 
+// var counter = 0;
+// if (counter % 2 === 0) {
+//   marker = 'x'
+// } else {
+//   marker = 'o'
+// }
+
+
+          //alternating turns - not working
 
 //=========================================
 
