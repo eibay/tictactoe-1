@@ -1,11 +1,8 @@
 console.log('This is Tic Tac Toe')
 
-
-
-
 //GAME
 var game = {
-  puzzle: ['',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
+  puzzle: [' ',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
   counter: 0,
   indexArrayX: [],
   indexArrayO: [],
@@ -24,6 +21,7 @@ var game = {
   newGame: function() {
     game.puzzle = [' ',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
     $('#game div').html(' ');
+    game.counter = 0;
   },
 
   checkWin: function() {
@@ -127,8 +125,10 @@ window.onload = function() {
 
         $('#reset').on('click', function() {
           game.newGame();
-          $('#xScore').html(0);
-          $('#oScore').html(0);
+          game.scoreX = 0;
+          game.scoreO = 0;
+          $('#xScore').html(game.scoreX);
+          $('#oScore').html(game.scoreO);
           game.counter = 0;
           console.log('click');
         });

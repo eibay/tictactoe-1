@@ -1,3 +1,15 @@
+Things to do:
+- Fix scoring system - only add '1' to scoreboard
+- Able to only click once
+- Local Storage
+- Make sure divs don't move
+- Complete READ ME file.
+- bug in detecting winner
+
+
+
+// ================================================================   
+
     if (game.checkWin === true) {
     alert('WINNER. PLAY again!');
     console.log('win? ' + game.checkWin());

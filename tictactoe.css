@@ -34,7 +34,7 @@ h3 {
 #game {
   width: 400px;
   height: 400px;
-  margin-left: 25%;
+  /*margin-left: 25%;*/
   border: solid 20px black;
   /*border-radius: 20px;*/
   background-color: black;
@@ -44,7 +44,7 @@ h3 {
 
 #game div {
   background-color: linen;
-  margin: 0.5555555%; /* 10/900 = 0.0111111 */
+  margin: 2px; /* 10/900 = 0.0111111 */
   width: 32.22222222%;
   height: 32.222222%;
   border-radius: 10px;
@@ -77,40 +77,43 @@ h3 {
 
 #tally {
   border: solid 2px black;
-  max-width: 45%;
+  width: 300px;
   margin: 0 auto;
   border-radius: 10px;
   margin-top: -0.5em;
   background-color: #00CCCC;
+  font-size: 1.5em;
 }
 
 #xScore, #oScore {
   height: 30px;
   width: 30px;
-  font-size: 4em;
   color: white;
-
+  /*display: inline-block;*/
 }
 
-#xScore, #oScore, label {
+#xScore, #playerX {
   display: inline-block;
 }
 
-#dash {
+#oScore, #playerO {
+  display: inline-block;
+}
+/*label {
+  display: inline-block;
+}*/
+
+/*#dash {
   font-size: 5em;
 }
-
+*/
 p {
   margin-bottom: -30px;
 }
 
 label {
-  font-size: 4em;
   color: black;
-  margin-right: 5px;
-  margin-left: 5px;
-
-  /*padding-top: 10px;*/
+  text-align: left;
 }
 
 button {
@@ -150,7 +153,7 @@ footer {
 @media all and (max-width: 600px) {
   h1 {
     font-size: 3em;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
   }
 
   h3 {
@@ -158,17 +161,13 @@ footer {
     color: black;
   }
 
-  #tally {
-    width: 310px;
-  }
-
-  #xScore, #oScore, label, #dash {
+  #xScore, #oScore, label {
     display: inline-block;
-    font-size: 2em;
   }
 
   button {
     height: 1.5em;
+    padding-bottom: 20px;
   }
 
 }
