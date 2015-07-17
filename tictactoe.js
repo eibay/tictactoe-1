@@ -2,21 +2,34 @@ console.log('This is Tic Tac Toe')
 
 //GAME
 var game = {
-  puzzle: [' ',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
-  scoreOne: '',
-  scoreTwo: '',
+  puzzle: ['x',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
   counter: 0,
   indexArrayX: [],
   indexArrayO: [],
   rounds: 0,
+  scoreX: 0,
+  scoreO: 0,
 
 
   setPlay: function() {
-    
+    _.each(game.puzzle, function(marker, index) {
+    // add div box
+    var newDivBox = $('<div>').attr('id','span-' + index).html(marker);
+    $('#game').append(newDivBox);
+    });
+  },
+  
+
+  newGame: function() {
+    game.puzzle = [' ',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
+    $('#game div').html(' ');
   },
 
-
   checkWin: function() {
+    //MUST HAVE A GROUP OF THREE BEFORE DECLARING WINNER
+    if (game.indexArrayX.length < 3 || game.indexArrayO.length < 3) {
+    return false;
+    }
     //WINNER DETERMINED WHEN:
     if ('x' === game.puzzle[0] && 'x' === game.puzzle[1] && 'x' === game.puzzle[2]) {
       return true;
@@ -51,18 +64,7 @@ var game = {
     } else if ('o' === game.puzzle[2] && 'o' === game.puzzle[4] && 'o' === game.puzzle[6]) {
       return true;
     }
-
-        //MUST HAVE A GROUP OF THREE BEFORE DECLARING WINNER
-    if (game.indexArrayX.length < 3 || game.indexArrayO.length < 3) {
-      return false;
-    }
-
-
   },
-
-  init: function() {
-    game.puzzle = [' ',' ',' ',' ', ' ', ' ', ' ', ' ', ' ']
-  }
 }
 
 // each (arr, index, list)
@@ -73,25 +75,31 @@ window.onload = function() {
 
   // $('#reset').on('click', game.init);
 
-  _.each(game.puzzle, function(marker, index) {
-    // add div box
-    var newDivBox = $('<div>').attr('id','span-' + index).html(marker);
-    $('#game').append(newDivBox);
+  // _.each(game.puzzle, function(marker, index) {
+  //   // add div box
+  //   var newDivBox = $('<div>').attr('id','span-' + index).html(marker);
+  //   $('#game').append(newDivBox);
 
-  });
+  // });
+  
+  game.setPlay();
 
   $('#game').on('click', 'div', function(event) {
     var index = parseInt(this.id.split('-')[1]); // getting the index number of the div being clicked to apply it back to the array
     console.log('index', index);
-    // game.puzzle[index] = 'x';
+
+    if (game.puzzle[index] !== ' ') {
+      return;
+    }
 
     //COUNTER - alternate turns between x and o
     var markerX = 'x';
     var markerO = 'o';
-    game.counter++
-    game.rounds++
+    var rounds = game.rounds;
+    game.counter++;
+    // game.score++;
 
-//MARKING X IN ARRAY, MARKING X ON THE BOARD, AND ALSO INPUTTING INDEX INTO NEW ARRAY FOR COMPARISON WITH WINNER
+//MARKING X IN ARRAY, MARKING X ON THE BOARD, AND ALSO INPUTTING INDEX INTO NEW ARRAY FOR COMPARISON WITH WINNER 
       if (game.counter % 2 === 1) {
         $(this).html(markerX);
         game.puzzle[index] = markerX;
@@ -102,17 +110,33 @@ window.onload = function() {
         game.puzzle[index] = markerO;
         game.indexArrayO.push(index);
         console.log('o appears at: ' + index);
-      }
-      console.log('win? ' + game.checkWin());
-      if (game.checkWin() === true && game.counter % 2 === 1) {
-        alert('X IS THE WINNER!')
-        $('#xScore').html(game.rounds);
-      } else if (game.checkWin() === true && game.counter % 2 === 0) {
-        alert('O IS THE WINNER!')
-        $('#oScore').html(game.rounds);
-      } else if (game.counter === 9) {
-        alert ("It's a tie. Play again!")
-      }
+    }
+
+      // for loop required for score????
+      // for (var rounds = 0; rounds < 5; rounds++) {
+        if (game.checkWin() === true && game.counter % 2 === 1) {
+          alert('X IS THE WINNER!')
+
+          $('#xScore').html(++game.scoreX);
+          game.newGame();
+          game.counter = 0;
+        } else if (game.checkWin() === true && game.counter % 2 === 0) {
+          alert('O IS THE WINNER!')
+          $('#oScore').html(++game.scoreO);
+          game.newGame();
+          game.counter = 0;
+        } else if (game.counter === 9) {
+          alert ("It's a tie. Play again!");
+          game.newGame();
+          game.counter = 0;
+        }
+      // }
+
+        $('#playAgain').on('click', function() {
+          game.newGame();
+          console.log('click');
+        });
   });
+        
 
 }

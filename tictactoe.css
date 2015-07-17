@@ -48,10 +48,15 @@ h3 {
   width: 32.22222222%;
   height: 32.222222%;
   border-radius: 10px;
+  padding: 0;
   font-size: 14em;
-  position: relative;
+  /*position: relative;*/
   line-height: 90px; 
-  margin-top: 0%;
+  /*margin-top: 0%;*/
+  /*display: absolute;*/
+  /*margin: 0 auto;*/
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #game div:hover {
@@ -72,27 +77,40 @@ h3 {
 
 #tally {
   border: solid 2px black;
-  max-width: 40%;
+  max-width: 60%;
   margin: 0 auto;
-  padding-top: 5px;
   border-radius: 10px;
   margin-top: -0.5em;
-  background-color: #20B2AA;
+  background-color: #00CCCC;
 }
 
 #xScore, #oScore {
-  height: 45px;
-  width: 45px;
-  background-color: white;
-  border: solid 2px black;
+  height: 30px;
+  width: 30px;
+  font-size: 4em;
+  color: white;
+
 }
 
 #xScore, #oScore, label {
   display: inline-block;
 }
 
+#dash {
+  font-size: 5em;
+}
+
+p {
+  margin-bottom: -30px;
+}
+
 label {
   font-size: 4em;
+  color: black;
+  margin-right: 5px;
+  margin-left: 5px;
+
+  /*padding-top: 10px;*/
 }
 
 button {
@@ -109,13 +127,13 @@ button {
   margin-bottom: 10px;
   margin-top: 10px;
   font-weight: bold;
-  background-color: #FFCC66;
+  background-color: #FFCC99;
   color: black;
 }
 
 button:hover {
   background-color: black;
-  color: #FFCC66;
+  color: #FFFF66;
 }
 
 footer {
@@ -133,10 +151,10 @@ footer {
     margin-bottom: 7px;
   }
 
-h3 {
-  background-color: white;
-  color: black;
-}
+  h3 {
+    background-color: white;
+    color: black;
+  }
 
 }
 

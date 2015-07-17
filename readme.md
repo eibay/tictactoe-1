@@ -1,16 +1,8 @@
-TIC TAC TOE
+#TIC TAC TOE#
 
-Things to do:
-- Make sure Javascript is functioning
-  - Able to determine winner
-  - Add a scoring system
-  - Able to only click once
-  - Reset the board/game
-- Figure out intergration between Javascript & DOM
-- Local Storage
-- Find and fix any bugs
+Tic Toe Toe is a fun and quick game for users of any age. 
 
-Thursday night: 
-- Complete CSS Design
-- Make sure divs don't move
-- Complete final touches
+###AIM:###
+- To connect three of your own, either straight across, down or diagonally across the board.
+- The board is set up 9 x 9, Player X goes first!
+- Simple right? Go ahead and start playing. 
