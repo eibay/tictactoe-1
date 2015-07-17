@@ -1,8 +1,11 @@
 console.log('This is Tic Tac Toe')
 
+
+
+
 //GAME
 var game = {
-  puzzle: ['x',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
+  puzzle: ['',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
   counter: 0,
   indexArrayX: [],
   indexArrayO: [],
@@ -10,15 +13,13 @@ var game = {
   scoreX: 0,
   scoreO: 0,
 
-
   setPlay: function() {
     _.each(game.puzzle, function(marker, index) {
-    // add div box
+    // adds div box
     var newDivBox = $('<div>').attr('id','span-' + index).html(marker);
     $('#game').append(newDivBox);
     });
   },
-  
 
   newGame: function() {
     game.puzzle = [' ',' ',' ',' ', ' ', ' ', ' ', ' ', ' '],
@@ -65,6 +66,7 @@ var game = {
       return true;
     }
   },
+
 }
 
 // each (arr, index, list)
@@ -72,15 +74,6 @@ var game = {
 
 //LOADING FUNCTIONS
 window.onload = function() {
-
-  // $('#reset').on('click', game.init);
-
-  // _.each(game.puzzle, function(marker, index) {
-  //   // add div box
-  //   var newDivBox = $('<div>').attr('id','span-' + index).html(marker);
-  //   $('#game').append(newDivBox);
-
-  // });
   
   game.setPlay();
 
@@ -97,7 +90,6 @@ window.onload = function() {
     var markerO = 'o';
     var rounds = game.rounds;
     game.counter++;
-    // game.score++;
 
 //MARKING X IN ARRAY, MARKING X ON THE BOARD, AND ALSO INPUTTING INDEX INTO NEW ARRAY FOR COMPARISON WITH WINNER 
       if (game.counter % 2 === 1) {
@@ -112,11 +104,8 @@ window.onload = function() {
         console.log('o appears at: ' + index);
     }
 
-      // for loop required for score????
-      // for (var rounds = 0; rounds < 5; rounds++) {
         if (game.checkWin() === true && game.counter % 2 === 1) {
           alert('X IS THE WINNER!')
-
           $('#xScore').html(++game.scoreX);
           game.newGame();
           game.counter = 0;
@@ -130,13 +119,20 @@ window.onload = function() {
           game.newGame();
           game.counter = 0;
         }
-      // }
 
         $('#playAgain').on('click', function() {
           game.newGame();
           console.log('click');
         });
+
+        $('#reset').on('click', function() {
+          game.newGame();
+          $('#xScore').html(0);
+          $('#oScore').html(0);
+          game.counter = 0;
+          console.log('click');
+        });
   });
         
-
 }
+
